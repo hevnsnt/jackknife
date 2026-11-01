@@ -34,6 +34,15 @@ do at each stage, for exercise participants to read and discuss. No file
 I/O beyond printing to stdout, no subprocess calls, no network calls, no
 dynamic code execution, no encoded or hidden payloads.
 
+Each step also prints a short cosmetic line of simulated "tool chatter"
+in Chinese, styled to look like captured output from a real intrusion
+tool for realism during the exercise. Every one of those lines is
+immediately followed by its English translation in the same output, so
+nothing in this repo is ever presented untranslated or left to be taken
+on faith. Use of Chinese-language flavor text here is exercise styling
+only and is not intended to represent, attribute, or imply involvement
+of any real individual, organization, or nation-state.
+
 ```
 python3 jackknife_poc.py --i-understand-this-is-fake
 ```

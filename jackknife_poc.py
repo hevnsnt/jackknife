@@ -54,10 +54,20 @@ FICTIONAL_LIBRARY = "example-json-mapper (fictional library, not a real package)
 FICTIONAL_FIXED_VERSIONS = ["2.22.2", "3.1.2"]
 
 
-def fake_step(label: str, detail: str, delay: float = 0.4) -> None:
-    """Print a simulated attack-chain step. Does not perform any action."""
+def fake_step(label: str, detail: str, flavor_cn: str = "", flavor_en: str = "", delay: float = 0.4) -> None:
+    """Print a simulated attack-chain step. Does not perform any action.
+
+    flavor_cn/flavor_en are cosmetic "tool chatter" only, meant to make the
+    printed narrative look like captured output from a real intrusion tool
+    during the exercise. Every Chinese line is printed with its English
+    translation directly beneath it, on purpose, so nothing here can be
+    mistaken for a real, untranslated log by anyone reading it.
+    """
     print(f"[SIMULATION] {label}")
     print(f"             {detail}")
+    if flavor_cn:
+        print(f"             > {flavor_cn}")
+        print(f"               [translation: {flavor_en}]")
     time.sleep(delay)
 
 
@@ -72,28 +82,41 @@ def run_simulation(target: str) -> None:
         f"A real chain might fingerprint a service using "
         f"{FICTIONAL_LIBRARY} to deserialize JSON input. "
         f"This script only prints this sentence.",
+        flavor_cn="正在扫描目标服务（模拟，未发起任何连接）",
+        flavor_en="Scanning target service (simulated, no connection made)",
     )
     fake_step(
         "Step 2 - Simulated crafted request",
         f"A real chain might send a JSON body referencing "
         f"{FICTIONAL_CVE_ID} to trigger unsafe deserialization. "
         f"No request is sent by this script.",
+        flavor_cn="构造JSON载荷（模拟，仅打印，不会发送）",
+        flavor_en="Building JSON payload (simulated, print-only, nothing sent)",
     )
     fake_step(
         "Step 3 - Simulated callback",
         "A real chain might cause the target to reach out to an "
         "attacker-controlled listener. This script contacts nothing.",
+        flavor_cn="等待目标回连（模拟，没有监听器，没有网络活动）",
+        flavor_en="Waiting for target callback (simulated, no listener, no network activity)",
     )
     fake_step(
         "Step 4 - Simulated remediation check",
         f"Patched versions in this fictional scenario are "
         f"{', '.join(FICTIONAL_FIXED_VERSIONS)}. This script does not "
         f"check, modify, or patch any real software.",
+        flavor_cn="校验补丁版本（模拟，未检查任何真实软件）",
+        flavor_en="Checking patch version (simulated, no real software checked)",
     )
 
     print("-" * 72)
     print("SIMULATION COMPLETE. No action was taken against any system.")
     print("This output exists only to support TTX discussion.")
+    print("本脚本为演习模拟材料，并非真实攻击工具，未对任何系统执行任何操作。")
+    print(
+        "[translation: This script is simulated exercise material, not a real "
+        "attack tool, and performed no action against any system.]"
+    )
 
 
 def main() -> int:
