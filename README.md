@@ -4,51 +4,71 @@
 labeled, non-functional simulation built for a Trifident Advisory Services
 tabletop exercise (TTX) run with Zebra Technologies in November 2026.
 
-## What this is
+## 这是什么
 
-A single Python script, `jackknife_poc.py`, styled to look like a
-proof-of-concept exploit, for use as a discussion artifact during the
-exercise. It is meant to look the part on screen during a facilitated
-walkthrough, nothing more.
+这是一个名为 `jackknife_poc.py` 的 Python 脚本，其样式设计成类似概念验证漏洞利用程序，用于在练习中作为讨论素材。
 
-- The vulnerability name "Jackknife" and the ID `CVE-2026-XXXXX` are
-  **fictional**. They do not correspond to any real CVE.
-- The "library" referenced in the script's output is a placeholder name,
-  not a real package.
-- There is no obfuscation anywhere in this repository. Every line is
-  plain, commented Python you can read top to bottom in under a minute.
+它的目的是在引导式演示过程中以类似漏洞利用程序的形式呈现，仅此而已。
 
-## What this is not
+- 漏洞名称“Jackknife”和 ID `CVE-2026-XXXXX` 是
 
-- Not a working exploit. It does not implement, demonstrate, or enable
-  any real attack technique.
-- Not network-capable. It opens no sockets, makes no requests, and
-  contacts no host.
-- Not a general-purpose security tool. Do not adapt it into one.
+**虚构的**。它们不对应于任何真实的 CVE 编号。
 
-## What the script actually does
+- 脚本输出中引用的“库”是一个占位符名称，
 
-Running it prints a short, clearly-labeled narrative ("Step 1 - Simulated
-recon", etc.) describing what a real exploit chain would hypothetically
-do at each stage, for exercise participants to read and discuss. No file
-I/O beyond printing to stdout, no subprocess calls, no network calls, no
-dynamic code execution, no encoded or hidden payloads.
+并非实际的软件包。
 
-Each step also prints a short cosmetic line of simulated "tool chatter"
-in Chinese, styled to look like captured output from a real intrusion
-tool for realism during the exercise. Every one of those lines is
-immediately followed by its English translation in the same output, so
-nothing in this repo is ever presented untranslated or left to be taken
-on faith. Use of Chinese-language flavor text here is exercise styling
-only and is not intended to represent, attribute, or imply involvement
-of any real individual, organization, or nation-state.
+- 此代码库中没有任何混淆处理。每一行都是
 
-```
+纯文本的、带有注释的 Python 代码，您可以在一分钟内从头到尾阅读完毕。
+
+## 这不是什么
+
+- 不是一个可用的漏洞利用程序。它没有实现、演示或启用
+
+任何真实的攻击技术。
+
+- 不具备网络功能。它不会打开任何套接字，不会发出任何请求，也不会
+
+联系任何主机。
+
+- 这不是通用安全工具。请勿将其改装成通用安全工具。
+
+## 脚本实际功能
+
+运行脚本后，会输出一段简短且清晰的描述（例如“步骤 1 - 模拟
+
+侦察”等），说明真实的攻击链在每个阶段的假设操作，供演练参与者阅读和讨论。脚本不进行任何文件
+
+I/O 操作（除了向标准输出打印信息之外），不调用子进程，不进行网络调用，不执行
+
+动态代码，也不执行任何编码或隐藏的有效载荷。
+
+每个步骤还会输出一行模拟的“工具对话”信息，
+
+其格式模仿真实入侵工具的捕获输出，
+
+以增强演练的真实性。
+
+每行信息之后都会立即显示其英文翻译，
+
+因此，
+本仓库中的任何内容都不会以未翻译的形式呈现，
+
+也不会让参与者凭空想象。此处使用中文文本仅为练习样式
+
+并不代表、归因或暗示任何真实个人、组织或国家参与其中
+
+
+
 python3 jackknife_poc.py --i-understand-this-is-fake
+
 ```
 
-The `--i-understand-this-is-fake` flag is required on purpose, as a
-reminder before anyone runs it that this is exercise material.
+特意需要使用 `--i-understand-this-is-fake` 标志，
+
+提醒运行此程序的用户这只是练习材料。
+
 
 ## Why it's public
 
